@@ -1,0 +1,13 @@
+---
+const { profile } = Astro.props;
+---
+
+{profile && (
+  <section class="profile-card">
+    {profile.picture && (
+      <img class="profile-img" src={profile.picture.medium} alt={profile.name} />
+    )}
+    <h1>{profile.name}</h1>
+    <p>{profile.description}</p>
+  </section>
+)}

@@ -1,0 +1,18 @@
+---
+import '../styles/global.css';
+import { fetchProfile, fetchAllProducts } from "../services/strapi.js";
+import ProfileCard from "../components/ProfileCard.astro";
+import LinksList from "../components/LinksList.astro";
+import ProductsGrid from "../components/ProductsGrid.astro";
+
+const profile = await fetchProfile();
+const products = await fetchAllProducts();
+---
+
+<html>
+  <body>
+    <ProfileCard profile={profile} />
+    <LinksList links={profile?.links || []} />
+    <ProductsGrid products={products} />
+  </body>
+</html>
