@@ -1,0 +1,236 @@
+.navigation-bar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hamburger-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-menu:hover {
+    background-color: #f5f5f5;
+  }
+
+  .kagun-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #667eea;
+    text-decoration: none;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-icon {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-icon:hover {
+    background-color: #667eea;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  /* Menú hamburguesa desplegable */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 2000;
+    padding: 20px;
+  }
+
+  .mobile-menu[data-state="open"] {
+    left: 0;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .menu-overlay[data-state="open"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+  }
+
+  .close-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .close-menu:hover {
+    background-color: #f5f5f5;
+  }
+
+  .menu-categories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-categories li {
+    margin-bottom: 15px;
+  }
+
+  .menu-categories a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+
+  .menu-categories a:hover {
+    background-color: #667eea;
+    color: white;
+  }
+
+  .menu-categories .submenu {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .menu-categories .submenu a {
+    font-size: 1rem;
+    color: #666;
+    padding-left: 35px;
+  }
+
+  .menu-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .menu-footer p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 0;
+  }
+
+  .menu-icon {
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 15px;
+    }
+
+    .kagun-name {
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu {
+      width: 280px;
+      left: -280px;
+    }
+
+    .nav-right {
+      gap: 10px;
+    }
+
+    .nav-icon {
+      padding: 8px;
+    }
+  }

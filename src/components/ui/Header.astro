@@ -1,0 +1,40 @@
+---
+import NavBar2 from './NavBar2.astro';
+
+// props opcionales para que sea reutilizable
+const {
+  logoSrc = '/logo.png',
+  logoAlt = 'Mi Marca',
+  storeName = 'Kagun',
+  cartItems = 0
+} = Astro.props;
+---
+
+<header>
+  <!-- Bloque del logo -->
+  <div class="header-logo">
+    <img src={logoSrc} alt={logoAlt} width="400" height="auto" />
+  </div>
+
+  <!-- Bloque del navbar -->
+  <NavBar2 storeName={storeName} cartItems={cartItems} />
+</header>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+  }
+
+  .header-logo {
+    padding: 12px;
+  }
+
+  .header-logo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import NavBar2 from './NavBar2.astro';
+
+// props opcionales
+const {
+  logoSrc = '/logo_header.jpg',
+  logoAlt = 'Kakun'
+} = Astro.props;
+---
+
+<header class="site-header">
+  <!-- BLOQUE LOGO (ancho completo, logo centrado) -->
+  <div class="header-logo">
+    <img src={logoSrc} alt={logoAlt} />
+  </div>
+
+  <!-- NAVBAR (tu componente actual) -->
+  <NavBar2 />
+</header>
+
+<style>
+  /* el header ocupa todo el ancho */
+  .site-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+
+  /* fila del logo: ancho completo, contenido centrado */
+  .header-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;                 /* separa logo de la barra */
+    border-bottom: 1px solid #eef1f5;
+    background: #fff;                /* o el color que quieras */
+  }
+
+  /* 👇 control por ALTURA (no usamos max-width) */
+  .header-logo img {
+    display: block;
+    height: 64px;                    /* << tamaño base del logo */
+    width: auto;                     /* mantiene proporción */
+  }
+
+  /* responsive: ajusta altura según breakpoint */
+  @media (max-width: 640px) {
+    .header-logo img { height: 52px; }
+  }
+  @media (min-width: 1024px) {
+    .header-logo img { height: 72px; }
+  }
+</style>

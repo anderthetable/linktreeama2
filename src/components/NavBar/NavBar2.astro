@@ -1,0 +1,60 @@
+---
+import styles from './NavBar.module.css';
+import { menuItems } from './menuItems.js';
+
+const { storeName = "Kagun", cartItems = 0 } = Astro.props;
+---
+
+<div id="menuOverlay" class={styles['menu-overlay']} data-state="closed"></div>
+
+<div id="mobileMenu" class={styles['mobile-menu']} data-menu data-state="closed">
+  <div class={styles['menu-header']}>
+    <div class={styles['menu-logo']}>{storeName}</div>
+    <button id="closeMenuBtn" class={styles['close-menu']} data-submenu-toggle aria-label="Cerrar menú">✕</button>
+  </div>
+  <ul class={styles['menu-categories']}>
+    {menuItems.map(item => (
+      <li>
+        <a href={item.href} data-category={item.name.toLowerCase()} data-submenu-toggle>
+          {item.name}
+        </a>
+        {item.submenu && (
+          <ul class={styles['submenu']}>
+            {item.submenu.map(sub => (
+              <li><a href={sub.href}>{sub.name}</a></li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+  <div class={styles['menu-footer']}>
+    <p>El Armario de Kagun<br />Tu tienda de moda favorita</p>
+  </div>
+</div>
+
+<nav class={styles['navigation-bar']} data-nav>
+  <div class={styles['nav-container']}>
+    <div class={styles['nav-left']}>
+      <button id="hamburgerBtn" data-toggle aria-expanded="false" aria-label="Abrir menú">&#9776;</button>
+      <a href="/" class={styles['kagun-name']}>{storeName}</a>
+    </div>
+    <div class={styles['nav-right']}>
+      <button id="searchBtn" title="Buscar">🔍</button>
+      <button id="cartBtn" title="Carrito">
+        🛒
+        {cartItems > 0 && <span class={styles['cart-badge']}>{cartItems}</span>}
+      </button>
+      <button id="loginBtn" title="Iniciar sesión">👤</button>
+    </div>
+  </div>
+</nav>
+
+<script src="./NavMenu2.js"></script>
+
+<script>
+  import initNavbar from './NavMenu2.js';
+  initNavbar();
+</script>
+
+

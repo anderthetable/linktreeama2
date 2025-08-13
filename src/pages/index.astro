@@ -1,18 +1,23 @@
 ---
 import '../styles/global.css';
 import { fetchProfile, fetchAllProducts } from "../services/strapi.js";
-import ProfileCard from "../components/ProfileCard.astro";
-import LinksList from "../components/LinksList.astro";
-import ProductsGrid from "../components/ProductsGrid.astro";
+import ProfileCard from "../components/ui/ProfileCard.astro";
+import LinksList from "../components/ui/LinksList.astro";
+import ProductsGrid from "../components/ui/ProductsGrid.astro";
+import NavBar from "../components/NavBar/NavBar.astro";
+import NavBar2 from "../components/NavBar/NavBar2.astro";
+import LogoHeader from "../components/ui/LogoHeader.astro";
+import Header from "../components/ui/Header.astro";
 
 const profile = await fetchProfile();
 const products = await fetchAllProducts();
 ---
 
 <html>
+  <meta charset="utf-8" />
+
   <body>
-    <ProfileCard profile={profile} />
-    <LinksList links={profile?.links || []} />
+    <Header logoSrc="/logo_header.jpg" logoAlt="Kakun" storeName="Kakun" cartItems={0}/>
     <ProductsGrid products={products} />
   </body>
 </html>

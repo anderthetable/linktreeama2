@@ -12,7 +12,7 @@ body {
   color: #333;
   line-height: 1.6;
   padding: 1rem;
-  max-width: 600px;
+  max-width: auto;
   margin: auto;
 }
 
@@ -102,3 +102,4 @@ section {
     width: 80px;
   }
 }
+
